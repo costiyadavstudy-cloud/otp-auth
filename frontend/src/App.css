@@ -1,0 +1,584 @@
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    margin: 0;
+}
+
+
+/* ============================================================
+   AUTH CONTAINER
+   ============================================================ */
+
+.auth-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    color: #f1f5f9;
+
+    background: #080b12;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   BACKGROUND GLOW
+   ============================================================ */
+
+.auth-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -180px;
+    left: -150px;
+
+    background: rgba(109, 93, 252, 0.16);
+
+    filter: blur(120px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.auth-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -180px;
+    bottom: -150px;
+
+    background: rgba(42, 126, 255, 0.12);
+
+    filter: blur(120px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   AUTH CARD
+   ============================================================ */
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+
+    padding: 42px;
+
+    background: rgba(17, 22, 32, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+
+    position: relative;
+
+    z-index: 1;
+
+    animation: cardAppear 0.6s ease;
+}
+
+
+/* ============================================================
+   CARD ANIMATION
+   ============================================================ */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   BRAND
+   ============================================================ */
+
+.brand {
+    text-align: center;
+
+    margin-bottom: 34px;
+}
+
+
+.brand-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d5dfc,
+            #3c8cff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(109, 93, 252, 0.25);
+}
+
+
+.brand h1 {
+    margin: 0 0 8px;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    letter-spacing: -0.7px;
+}
+
+
+.brand p {
+    margin: 0;
+
+    color: #8b95a7;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   FORM
+   ============================================================ */
+
+.auth-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* ============================================================
+   INPUT GROUP
+   ============================================================ */
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.input-group label {
+    color: #cbd5e1;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   INPUT WRAPPER
+   ============================================================ */
+
+.input-wrapper {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* ============================================================
+   INPUT ICON
+   ============================================================ */
+
+.input-icon {
+    position: absolute;
+
+    left: 15px;
+
+    color: #687386;
+
+    font-size: 15px;
+
+    pointer-events: none;
+
+    transition: color 0.2s ease;
+}
+
+
+/* ============================================================
+   INPUT
+   ============================================================ */
+
+.input-wrapper input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 15px 0 43px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #f1f5f9;
+
+    background: #0d121b;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+    color: #566174;
+}
+
+
+.input-wrapper input:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.input-wrapper input:focus {
+    border-color: #6d5dfc;
+
+    background: #0f1520;
+
+    box-shadow:
+        0 0 0 3px rgba(109, 93, 252, 0.12);
+}
+
+
+.input-wrapper:focus-within .input-icon {
+    color: #8275ff;
+}
+
+
+/* ============================================================
+   PASSWORD BUTTON
+   ============================================================ */
+
+.show-password {
+    position: absolute;
+
+    right: 12px;
+
+    padding: 5px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #788397;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+.show-password:hover {
+    color: white;
+}
+
+
+/* ============================================================
+   TERMS & CONDITIONS
+   ============================================================ */
+
+.terms {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    color: #8b95a7;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.terms input {
+    width: 14px;
+    height: 14px;
+
+    margin-top: 2px;
+
+    flex-shrink: 0;
+
+    accent-color: #6d5dfc;
+
+    cursor: pointer;
+}
+
+
+.terms span {
+    cursor: pointer;
+}
+
+
+.terms:hover {
+    color: #a8b1c0;
+}
+
+
+/* ============================================================
+   LOGIN / CREATE ACCOUNT BUTTON
+   ============================================================ */
+
+.login-btn {
+    width: 100%;
+    height: 51px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d5dfc,
+            #527cff
+        );
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(109, 93, 252, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.login-btn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 14px 30px rgba(109, 93, 252, 0.28);
+}
+
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   BUTTON ARROW
+   ============================================================ */
+
+.arrow {
+    font-size: 18px;
+
+    transition: transform 0.2s ease;
+}
+
+
+.login-btn:hover .arrow {
+    transform: translateX(4px);
+}
+
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 27px 0 22px;
+
+    color: #566174;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: rgba(255, 255, 255, 0.09);
+}
+
+
+/* ============================================================
+   SIGN IN TEXT
+   ============================================================ */
+
+.signup-text {
+    margin: 0;
+
+    text-align: center;
+
+    color: #8b95a7;
+
+    font-size: 13px;
+}
+
+
+.signup-text a {
+    margin-left: 5px;
+
+    color: #8275ff;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.signup-text a:hover {
+    color: white;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 500px) {
+
+    .auth-container {
+        padding: 20px 15px;
+    }
+
+
+    .auth-card {
+        padding: 32px 24px;
+
+        border-radius: 16px;
+    }
+
+
+    .brand h1 {
+        font-size: 25px;
+    }
+}
+
+
+@media (max-width: 360px) {
+
+    .auth-card {
+        padding: 28px 18px;
+    }
+
+
+    .brand h1 {
+        font-size: 23px;
+    }
+
+
+    .terms {
+        font-size: 11px;
+    }
+}
